@@ -2,6 +2,7 @@ import { res } from "./gpu.js";
 
 let main1 = "";
 let main2 = "";
+const me = res;
 const data = res.map((val, key) => {
   const title = val.title;
   const price = Math.round(val.price);
@@ -31,12 +32,20 @@ const data = res.map((val, key) => {
               alt="ok">
           </div>
               `;
-  main2 = `
-            <div class="grid grid-cols-2 columns-xs gap-y-8 border border-blue-300 ">
+  main2 += `
+  
+        <div class="grid border-blue-300 border">
 
-            <div class=" py-5 pl-5 ">
+            <div class="mx-5 my-5 justify-center items-center flex">
+
+              <img class="flex-col h-40 scale-110" src="${image}" alt="ok">
+            </div>
+
+
+            <div class="">
+            <div class=" py-5 mx-5">
               <div class=" flex">
-                <div data-star="3.9"></div>
+                <div data-star="3.7"></div>
                 <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(40)</div>
               </div>
               <a href="">
@@ -55,19 +64,15 @@ const data = res.map((val, key) => {
                 </div>
               </div>
             </div>
-
-
-            <div class="mx-3 my-3 flex justify-center items-center">
-              <img class="" src="${image}"
-                alt="ok">
             </div>
 
 
           </div>
+           
 
               `;
 });
 document.getElementById("prod1").innerHTML = main1;
 document.getElementById("prod2").innerHTML = main2;
 // console.log(format);
-console.log(res);
+console.log();
