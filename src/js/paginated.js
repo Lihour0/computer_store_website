@@ -22,6 +22,7 @@ function loadItems() {
     const price = Math.round(val.price);
     const image = val.img;
     const rating = getRand(3, 5);
+    const ratingVal = Math.floor(Math.random() * 3000);
     item.innerHTML = `
     <div class="grid border-blue-300 border">
 
@@ -34,7 +35,7 @@ function loadItems() {
             <div class=" py-5 mx-5">
               <div class=" flex">
                 <div data-star="${rating}"></div>
-                <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(40)</div>
+                <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(${ratingVal})</div>
               </div>
               <a href="">
 
