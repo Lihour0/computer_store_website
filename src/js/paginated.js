@@ -1,3 +1,4 @@
+import { getRand } from "../utils/randomNum.js";
 import { res } from "./gpu.js";
 import { paginate } from "./paginate.js";
 
@@ -7,17 +8,20 @@ const main = document.getElementById("prod2");
 let pages = 1;
 let perPage = 12;
 
+const totalPages = paginate(res, pages, perPage).totalPages;
+
 function loadItems() {
-  let paginatedData = paginate(res, pages, perPage);
+  var paginatedData = paginate(res, pages, perPage);
   let data = paginatedData.data;
   console.log(paginatedData);
   main.innerHTML = "";
   data.map((val) => {
     const item = document.createElement("div");
+    item.className = "flex";
     const title = val.title;
     const price = Math.round(val.price);
     const image = val.img;
-    const rating = 4;
+    const rating = getRand(3, 5);
     item.innerHTML = `
     <div class="grid border-blue-300 border">
 
@@ -62,13 +66,31 @@ function changePage() {
   for (let i = 0; i < 7; i++) {
     const button = document.createElement("div");
     button.innerHTML = `
-    <button value="${i + 1}">${i + 1}</button>
-    
+    <button class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" value="${
+      i + 1
+    }">${i + 1}</button>
     `;
+
     button.addEventListener("click", (e) => {
-      pages = e.target.innerHTML - 1;
+      pages = e.target.innerHTML;
       loadItems();
     });
     btn.append(button);
   }
 }
+function previousPage() {
+  if (pages > 1) {
+    pages--;
+    loadItems();
+  }
+}
+function nextPage() {
+  if (pages < totalPages) {
+    pages++;
+    loadItems();
+  }
+}
+document
+  .querySelector("#prevBtn")
+  .addEventListener("click", previousPage, false);
+document.querySelector("#nextBtn").addEventListener("click", nextPage, false);
