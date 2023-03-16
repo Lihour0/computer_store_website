@@ -4,11 +4,16 @@ import { paginate } from "./paginate.js";
 
 const btn = document.getElementById("btn");
 const main = document.getElementById("prod2");
+const banner = document.getElementById("banner");
+const searchQuery = document.getElementById("search");
 
 let pages = 1;
 let perPage = 12;
 
 const totalPages = paginate(res, pages, perPage).totalPages;
+const title = res.map((res) => {
+  return res.title;
+});
 
 function loadItems() {
   var paginatedData = paginate(res, pages, perPage);
@@ -23,21 +28,22 @@ function loadItems() {
     const image = val.img;
     const rating = getRand(3, 5);
     const ratingVal = Math.floor(Math.random() * 3000);
+    const link = val.link;
     item.innerHTML = `
-    <div class="grid border-blue-300 border">
+    <div class="grid gap-3 bg-white rounded-2xl">
 
             <div class="mx-5 my-5 justify-center items-center flex">
 
               <img class="" src="${image}" alt="ok">
             </div>
 
-            <div class="">
+            <div>
             <div class=" py-5 mx-5">
               <div class=" flex">
                 <div data-star="${rating}"></div>
                 <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(${ratingVal})</div>
               </div>
-              <a href="">
+              <a href="${link}">
 
                 <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">${title}</div>
               </a>
@@ -48,10 +54,8 @@ function loadItems() {
                 </div>
                 <sup class="items-center flex justify-center">.99</sup>
 
-                <div class="pb-10">
-
-                </div>
               </div>
+              <div class="flex "></div>
             </div>
             </div>
           </div>
@@ -59,6 +63,13 @@ function loadItems() {
     main.append(item);
   });
   changePage();
+  function search() {
+    searchQuery.addEventListener("input", (e) => {
+      const value = e.target.value.toLowerCase();
+      console.log(value);
+    });
+  }
+  search();
 }
 loadItems();
 
@@ -91,6 +102,7 @@ function nextPage() {
     loadItems();
   }
 }
+
 document
   .querySelector("#prevBtn")
   .addEventListener("click", previousPage, false);

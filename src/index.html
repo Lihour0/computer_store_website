@@ -22,17 +22,22 @@
       -webkit-mask-image: linear-gradient(to bottom, white 80%, transparent 99%);
     }
   </style>
+
 </head>
 
 
 
 
-
-<body class="bg-white">
+<body class="bg-gray-100">
   <!-- <div id="root"></div> -->
-  <header>
-    <nav class="flex justify-center items-center mx-auto z-40">
-      <div class=" "><a href="/">hi</a></div>
+  <header class="fixed top-0 z-10 w-full ">
+    <nav class="flex justify-center items-center mx-auto bg-white relative  ">
+      <div class="absolute left-0 mx-4 flex ">
+        <a href="/">
+          <img width="45" height="45" src="assets/computer-svgrepo-com.svg" alt="ok">
+        </a>
+        <div class="pl-3 flex justify-center items-center font-extrabold text-2xl">Crossdeck</div>
+      </div>
 
       <div class="flex justify-center items-center">
         <form class="my-3 w-[600px]" id="form">
@@ -57,29 +62,134 @@
           </div>
       </div>
       </form>
-      </div>
-      <div class="px-20">
-        <!-- <button
-          class="bg-[black] w-fit shrink-0 text-white px-5 py-2 rounded-full hover:bg-white hover:text-black text-center">
-          Sign in
-        </button> -->
+
+
+      <div class="absolute right-10">
+        <button onclick="toggleSlideover()">
+
+          <img width="32" height="32" src="assets/cart.svg" alt="ok">
+        </button>
       </div>
       <div class="flex">
-        <div>
-          <a href="/cart.html" onclick="route()">cart</a>
+
+        <div class="z-10 " aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+
+
+          <div class="invisible ease-in-out duration-500" id="slideover-container">
+            <div onclick="toggleSlideover()" id="slideover-bg"
+              class="fixed inset-0 bg-gray-500 opacity-0 ease-out transition-all">
+            </div>
+
+            <div class="fixed inset-0 overflow-hidden">
+              <div class="absolute inset-0 overflow-hidden">
+                <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                  <div id="slideover"
+                    class="pointer-events-auto w-screen max-w-md duration-300 ease-out transition-all translate-x-full">
+                    <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                      <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+                        <div class="flex items-start justify-between">
+                          <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Shopping cart</h2>
+                          <div class="ml-3 flex h-7 items-center">
+
+
+                            <button onclick="toggleSlideover()" type="button"
+                              class="-m-2 p-2 text-gray-400 hover:text-gray-500">
+                              <span class="sr-only">Close panel</span>
+                              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                              </svg>
+                            </button>
+
+
+                          </div>
+                        </div>
+
+                        <div class="mt-8">
+                          <div class="flow-root">
+                            <ul role="list" class="-my-6 divide-y divide-gray-200">
+
+
+                              <li class="flex py-6">
+                                <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md">
+                                  <img src="
+                                    https://m.media-amazon.com/images/I/418Jiaw3qXL._SL500_.jpg"
+                                    alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                                    class="h-full w-full object-cover object-center">
+                                </div>
+
+                                <div class="ml-4 flex flex-1 flex-col">
+                                  <div>
+                                    <div class="flex justify-between text-base font-medium text-gray-900">
+                                      <h3>
+                                        <a href="#"></a>
+                                        ASUS ROG Zenith II
+                                      </h3>
+                                      <p class="ml-4">
+                                        $1799
+
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="flex flex-1 items-end justify-between text-sm">
+                                    <p class="text-gray-500">Qty 1</p>
+
+                                    <div class="flex">
+                                      <button type="button"
+                                        class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                              <div id="cart"></div>
+
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
+                        <div class="flex justify-between text-base font-medium text-gray-900">
+                          <p>Subtotal</p>
+                          <div id="cartSubtotal">$1799 </div>
+                        </div>
+                        <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                        <div class="mt-6">
+                          <a href="#"
+                            class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                        </div>
+                        <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                          <p>
+                            or
+                            <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">
+                              Continue Shopping
+                              <span aria-hidden="true"> &rarr;</span>
+                            </button>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <div>
-          <a href="/product.html" onclick="route()">product</a>
-        </div>
+
 
       </div>
+
+
+
+
     </nav>
 
   </header>
 
 
-  <main class="mx-auto ">
+  <main class="mx-auto pt-16">
 
     <div class="banner-img">
       <div class="swiper mySwiper h-max">
@@ -106,145 +216,71 @@
 
 
     <div class="h-auto w-auto mx-10">
+      <div class="mt-10 mb-5">
+
+        <div class="font-extrabold text-4xl ">TODAY'S BEST DEALS</div>
+      </div>
       <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4  h-auto w-fit  justify-center">
 
 
 
 
 
-        <div class="grid columns-xs gap-y-10 border-blue-300 border">
+        <div class="grid columns-xs  bg-white rounded-2xl ">
 
 
 
 
           <div class=" py-5 pl-5 mx-3">
             <div class=" flex">
-              <div data-star="3.7"></div>
-              <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(40)</div>
+              <div data-star="4.8"></div>
+              <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(3054)</div>
             </div>
             <a href="">
 
-              <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">IPASON - Gaming desktop - AMD
-                Ryzen 5 5600G 6 core 3.9GHz - 16GB(8*2) DDR4 3200MHz - 500GB M.2 NVMe - 500W PSU - Windows 11 home -
-                WIFI - Gaming PC</div>
+              <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">ASUS ROG Zenith II Extreme Alpha
+                TRX40 Gaming AMD 3rd Gen Ryzen Threadripper STRX4 EATX Motherboard With 16 Infineon Power Stages, PCIe
+                4.0, Wi-Fi 6</div>
             </a>
-            <div class="flex">
+            <div class="flex relative">
               <div class="justify-center items-center flex text-2xl font-medium">$</div>
               <div class="text-[25px] font-bold justify-center items-center flex">
-                199
+                1799
               </div>
               <sup class="items-center flex justify-center">.99</sup>
 
-              <div class="pb-10">
-
-              </div>
             </div>
           </div>
 
           <div class="mx-12 my-5 justify-center items-center flex">
 
-            <img class="w-fit object-cover" src="https://c1.neweggimages.com/ProductImage/20-318-013-05.png?ex=2"
-              alt="ok">
-          </div>
-
-          <!-- <div id="prod1"></div> -->
-
-        </div>
-        <div class="grid gap-4  justify-center justify-items-center h-auto">
-          <div class="grid grid-cols-2 columns-xs gap-y-8 border border-blue-300 ">
-
-            <div class=" py-5 pl-5 ">
-              <div class=" flex">
-                <div data-star="3.7"></div>
-                <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(40)</div>
-              </div>
-              <a href="">
-
-                <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">IPASON - Gaming desktop - AMD
-                  Ryzen 5 5600G 6 core 3.9GHz - 16GB(8*2) DDR4 3200MHz - 500GB M.2 NVMe - 500W PSU - Windows 11 home -
-                  WIFI - Gaming PC</div>
-              </a>
-              <div class="flex">
-                <div class="justify-center items-center flex text-2xl font-medium">$</div>
-                <div class="text-[25px] font-bold justify-center items-center flex">
-                  199
-                </div>
-                <sup class="items-center flex justify-center">.99</sup>
-
-                <div class="pb-10">
-
-                </div>
-              </div>
-            </div>
-
-
-            <div class="mx-3 my-3 flex justify-center items-center">
-              <img class="" src="https://m.media-amazon.com/images/I/41zT+Jh4iRL._SL500_.jpg" alt="ok">
-            </div>
-
+            <img class="w-fit object-cover" src="https://m.media-amazon.com/images/I/418Jiaw3qXL._SL500_.jpg" alt="ok">
 
           </div>
-
-          <!-- <div class="flex" id="prod2"></div> -->
-
-
-
-          <div class="grid grid-cols-2 columns-xs gap-y-8 border border-blue-300">
-
-            <div class=" py-5 pl-5 ">
-              <div class=" flex">
-                <div data-star="3.7"></div>
-                <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(40)</div>
-              </div>
-              <a href="">
-
-                <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">IPASON - Gaming desktop - AMD
-                  Ryzen 5 5600G 6 core 3.9GHz - 16GB(8*2) DDR4 3200MHz - 500GB M.2 NVMe - 500W PSU - Windows 11 home -
-                  WIFI - Gaming PC</div>
-              </a>
-              <div class="flex">
-                <div class="justify-center items-center flex text-2xl font-medium">$</div>
-                <div class="text-[25px] font-bold justify-center items-center flex">
-                  199
-                </div>
-                <sup class="items-center flex justify-center">.99</sup>
-
-                <div class="pb-10">
-
-                </div>
-              </div>
-            </div>
-
-
-            <div class="mx-3 my-3 flex justify-center items-center">
-              <img class="" src="https://c1.neweggimages.com/ProductImageCompressAll300/AZEBS23012902UZX582.jpg?ex=2"
-                alt="ok">
-            </div>
-
-
-          </div>
-
 
 
         </div>
+
+
+
         <div class="grid gap-4  justify-center justify-items-center h-auto">
-          <div class="grid grid-cols-2 columns-xs gap-y-4 border border-blue-300 ">
+          <div class="grid grid-cols-2 columns-xs gap-y-8 bg-white rounded-2xl ">
 
             <div class=" py-5 pl-5 ">
               <div class=" flex">
                 <div data-star="3.7"></div>
-                <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(40)</div>
+                <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(2853)</div>
               </div>
               <a href="">
 
-                <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">IPASON - Gaming desktop - AMD
-                  Ryzen 5 5600G 6 core 3.9GHz - 16GB(8*2) DDR4 3200MHz - 500GB M.2 NVMe - 500W PSU - Windows 11 home -
-                  WIFI - Gaming PC</div>
+                <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">GIGABYTE TRX40 DESIGNARE
+                  (sTRX/AMD/TRX40/Direct 16+3 Phase VRM/Fins-Array Heatsink/Gen 4 AIC With 4 Extra M.2/
+                  XL-ATX/Motherboard)</div>
               </a>
               <div class="flex">
                 <div class="justify-center items-center flex text-2xl font-medium">$</div>
                 <div class="text-[25px] font-bold justify-center items-center flex">
-                  199
+                  1499
                 </div>
                 <sup class="items-center flex justify-center">.99</sup>
 
@@ -256,31 +292,106 @@
 
 
             <div class="mx-3 my-3 flex justify-center items-center">
-              <img class="" src="https://c1.neweggimages.com/ProductImageCompressAll300/AZEBS23012902UZX582.jpg?ex=2"
-                alt="ok">
+              <img class="" src="https://m.media-amazon.com/images/I/41jCl0vLfkL._SL500_.jpg" alt="ok">
+            </div>
+
+
+          </div>
+
+
+
+
+          <div class="grid grid-cols-2 columns-xs gap-y-8 bg-white rounded-2xl">
+
+            <div class=" py-5 pl-5 ">
+              <div class=" flex">
+                <div data-star="5"></div>
+                <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(3020)</div>
+              </div>
+              <a href="">
+
+                <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">
+                  MSI Gaming GeForce RTX 3090 24GB GDRR6X 384-Bit HDMI/DP 1875 MHz Ampere Architecture OC Graphics Card
+                  (RTX 3090 Suprim X 24G)
+
+                </div>
+              </a>
+              <div class="flex">
+                <div class="justify-center items-center flex text-2xl font-medium">$</div>
+                <div class="text-[25px] font-bold justify-center items-center flex">
+                  1781
+                </div>
+                <sup class="items-center flex justify-center">.99</sup>
+
+                <div class="pb-10">
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="mx-3 my-3 flex justify-center items-center">
+              <img class="" src="https://m.media-amazon.com/images/I/414zckjrQ2L._SL500_.jpg" alt="ok">
+            </div>
+
+
+          </div>
+
+
+
+        </div>
+        <div class="grid gap-4  justify-center justify-items-center">
+          <div class="grid grid-cols-2 columns-xs gap-y-4 bg-white rounded-2xl ">
+
+            <div class=" py-5 pl-5 ">
+              <div class=" flex">
+                <div data-star="3.9"></div>
+                <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(2990)</div>
+              </div>
+              <a href="">
+
+                <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">MSI TRX40 PRO 10G Motherboard
+                  (AMD
+                  STRX4, PCIe Gen4, M.2, USB3.2 Gen2x2, DDR4, Dual 10G LAN, ATX)</div>
+              </a>
+              <div class="flex">
+                <div class="justify-center items-center flex text-2xl font-medium">$</div>
+                <div class="text-[25px] font-bold justify-center items-center flex">
+                  1189
+                </div>
+                <sup class="items-center flex justify-center">.99</sup>
+
+                <div class="pb-10">
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="mx-3 my-3 flex justify-center items-center">
+              <img class="" src="https://m.media-amazon.com/images/I/41avm0KwiYL._SL500_.jpg" alt="ok">
             </div>
 
 
           </div>
           <div class="hidden lg:block ">
-            <div class="grid grid-cols-2 columns-xs gap-y-8 border border-blue-300 h-full">
+            <div class="grid grid-cols-2 columns-xs gap-y-8 bg-white rounded-2xl h-full">
 
               <div class=" py-5 pl-5 ">
                 <div class=" flex">
-                  <div data-star="3.7"></div>
-                  <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(40)</div>
+                  <div data-star="4.2"></div>
+                  <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(2990)</div>
                 </div>
                 <a href="">
 
-                  <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">IPASON - Gaming desktop - AMD
-                    Ryzen 5 5600G 6 core 3.9GHz - 16GB(8*2) DDR4 3200MHz - 500GB M.2 NVMe - 500W PSU - Windows 11 home
-                    -
-                    WIFI - Gaming PC</div>
+                  <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">GIGABYTE X299X AORUS Designare
+                    10G (Intel/X299/ XL-ATX/12 Phase Digital VRM/Fins-Array Heatsink/Dual Thunderbolt 3/WiFi 6/Dual
+                    Intel 10G LAN/AORUS Gen 4 AIC Adapter/Motherboard)</div>
                 </a>
                 <div class="flex">
                   <div class="justify-center items-center flex text-2xl font-medium">$</div>
                   <div class="text-[25px] font-bold justify-center items-center flex">
-                    199
+                    1499
                   </div>
                   <sup class="items-center flex justify-center">.99</sup>
 
@@ -292,14 +403,9 @@
 
 
               <div class="mx-3 my-3 flex justify-center items-center">
-                <img class="" src="https://c1.neweggimages.com/ProductImageCompressAll300/AZEBS23012902UZX582.jpg?ex=2"
-                  alt="ok">
+                <img class="" src="https://m.media-amazon.com/images/I/41Pt4YtQySL._SL500_.jpg" alt="ok">
               </div>
             </div>
-
-
-
-
 
 
           </div>
@@ -307,24 +413,24 @@
 
 
         </div>
-        <div class="lg:hidden">
-          <div class="grid grid-cols-2 columns-xs gap-y-8 border border-blue-300">
+        <div class="lg:hidden flex">
+          <div class="grid grid-cols-2 columns-xs gap-y-8 bg-white rounded-2xl">
 
             <div class=" py-5 pl-5 ">
               <div class=" flex">
-                <div data-star="3.7"></div>
-                <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(40)</div>
+                <div data-star="4.2"></div>
+                <div class="text-sm justify-center items-center flex pl-2 font-light text-slate-500 ">(2990)</div>
               </div>
               <a href="">
 
-                <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">IPASON - Gaming desktop - AMD
-                  Ryzen 5 5600G 6 core 3.9GHz - 16GB(8*2) DDR4 3200MHz - 500GB M.2 NVMe - 500W PSU - Windows 11 home -
-                  WIFI - Gaming PC</div>
+                <div class="line-clamp-2 mb-2 mr-[2px]  justify-center items-center">GIGABYTE X299X AORUS Designare
+                  10G (Intel/X299/ XL-ATX/12 Phase Digital VRM/Fins-Array Heatsink/Dual Thunderbolt 3/WiFi 6/Dual
+                  Intel 10G LAN/AORUS Gen 4 AIC Adapter/Motherboard)</div>
               </a>
               <div class="flex">
                 <div class="justify-center items-center flex text-2xl font-medium">$</div>
                 <div class="text-[25px] font-bold justify-center items-center flex">
-                  199
+                  1499
                 </div>
                 <sup class="items-center flex justify-center">.99</sup>
 
@@ -336,20 +442,12 @@
 
 
             <div class="mx-3 my-3 flex justify-center items-center">
-              <img class="" src="https://c1.neweggimages.com/ProductImageCompressAll300/AZEBS23012902UZX582.jpg?ex=2"
-                alt="ok">
+              <img class="" src="https://m.media-amazon.com/images/I/41Pt4YtQySL._SL500_.jpg" alt="ok">
             </div>
           </div>
 
 
-
-
-
-
         </div>
-
-
-
 
       </div>
       <div class="mt-10 mb-5">
@@ -358,36 +456,22 @@
       </div>
       <div class="w-auto h-auto">
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4  " id="prod2">
-          <!-- <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 " id="content"></div> -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="prod2">
 
         </div>
+
+
+
+
+
         <div class="mx-5 my-5">
           <ul class="flex justify-center items-center">
+
             <button id="prevBtn"
               class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
-            <!-- <div class="flex" id="pagination"></div> -->
+
             <div class="flex" id="btn"></div>
-            <!-- <li>
-              <a href="#"
-                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
-            </li> -->
-            <!-- <li>
-              <a href="#"
-                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-            </li>
-            <li>
-              <a href="#" aria-current="page"
-                class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
-            </li>
-            <li>
-              <a href="#"
-                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
-            </li>
-            <li>
-              <a href="#"
-                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
-            </li> -->
+
             <button id="nextBtn"
               class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
           </ul>
@@ -397,7 +481,6 @@
 
   </main>
 </body>
-<!-- <script src="js/main.js" type="module"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
   const swiper = new Swiper(".mySwiper", {
@@ -428,8 +511,8 @@
     form.reset()
   })
 </script>
-<!-- <script src="/js/fetch.js" type="module"></script> -->
-<!-- <script src="js/pagination.js" type="module"></script> -->
-<script src="../js/paginated.js" type="module"></script>
+
+<script src="js/paginated.js" type="module"></script>
+<script src="js/handleCart.js"></script>
 
 </html>

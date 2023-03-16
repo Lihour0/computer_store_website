@@ -232,3 +232,11 @@
 [data-star^="5"]::after {
   width: 100%;
 }
+
+.is-hidde {
+  display: none;
+}
+
+.show {
+  display: block;
+}
