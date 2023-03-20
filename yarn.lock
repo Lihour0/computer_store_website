@@ -477,11 +477,6 @@ is-number@^7.0.0:
   resolved "https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz"
   integrity sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==
 
-jquery@^3.6.3:
-  version "3.6.3"
-  resolved "https://registry.npmjs.org/jquery/-/jquery-3.6.3.tgz"
-  integrity sha512-bZ5Sy3YzKo9Fyc8wH2iIQK4JImJ6R0GWI9kL1/k7Z91ZBNgkRXE6U0JfHIizZbort8ZunhSI3jw9I6253ahKfg==
-
 lilconfig@^2.0.5, lilconfig@^2.0.6:
   version "2.0.6"
   resolved "https://registry.npmjs.org/lilconfig/-/lilconfig-2.0.6.tgz"
@@ -845,8 +840,3 @@ yargs@^17.3.1:
     string-width "^4.2.3"
     y18n "^5.0.5"
     yargs-parser "^21.1.1"
-
-zod@^3.20.6:
-  version "3.21.2"
-  resolved "https://registry.npmjs.org/zod/-/zod-3.21.2.tgz"
-  integrity sha512-0Ygy2/IZNIxHterZdHjE5Vb8hp1fUHJD/BGvSHj8QJx+UipEVNvo9WLchoyBpz5JIaN6KmdGDGYdloGzpFK98g==

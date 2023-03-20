@@ -3,38 +3,29 @@ import { res } from "./gpu.js";
 import { paginate } from "./paginate.js";
 
 const btn = document.getElementById("btn");
-const main = document.getElementById("prod2");
-const banner = document.getElementById("banner");
+const main = document.getElementById("prodList");
 const searchQuery = document.getElementById("search");
 
 let pages = 1;
 let perPage = 12;
 
-const totalPages = paginate(res, pages, perPage).totalPages;
-const title = res.map((res) => {
-  return res.title;
-});
-
 function loadItems() {
   var paginatedData = paginate(res, pages, perPage);
   let data = paginatedData.data;
-  console.log(paginatedData);
   main.innerHTML = "";
-  data.map((val) => {
+  data.map(({ title, img, link, price }) => {
     const item = document.createElement("div");
-    item.className = "flex";
-    const title = val.title;
-    const price = Math.round(val.price);
-    const image = val.img;
+
     const rating = getRand(3, 5);
     const ratingVal = Math.floor(Math.random() * 3000);
-    const link = val.link;
+
+    item.className = "flex";
     item.innerHTML = `
     <div class="grid gap-3 bg-white rounded-2xl">
 
             <div class="mx-5 my-5 justify-center items-center flex">
 
-              <img class="" src="${image}" alt="ok">
+              <img  src="${img}" alt="ok">
             </div>
 
             <div>
@@ -55,7 +46,6 @@ function loadItems() {
                 <sup class="items-center flex justify-center">.99</sup>
 
               </div>
-              <div class="flex "></div>
             </div>
             </div>
           </div>
@@ -63,33 +53,32 @@ function loadItems() {
     main.append(item);
   });
   changePage();
+  function changePage() {
+    btn.innerHTML = "";
+    for (let i = 0; i < paginatedData.totalPages; i++) {
+      const button = document.createElement("div");
+      button.innerHTML = `
+    <button class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 value="${
+      i + 1
+    }">${i + 1}</button>
+    `;
+
+      button.addEventListener("click", (e) => {
+        pages = e.target.innerHTML;
+        loadItems();
+      });
+      btn.append(button);
+    }
+  }
   function search() {
     searchQuery.addEventListener("input", (e) => {
       const value = e.target.value.toLowerCase();
-      console.log(value);
     });
   }
   search();
 }
 loadItems();
 
-function changePage() {
-  btn.innerHTML = "";
-  for (let i = 0; i < 7; i++) {
-    const button = document.createElement("div");
-    button.innerHTML = `
-    <button class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" value="${
-      i + 1
-    }">${i + 1}</button>
-    `;
-
-    button.addEventListener("click", (e) => {
-      pages = e.target.innerHTML;
-      loadItems();
-    });
-    btn.append(button);
-  }
-}
 function previousPage() {
   if (pages > 1) {
     pages--;

@@ -29,9 +29,8 @@
 
 
 <body class="bg-gray-100">
-  <!-- <div id="root"></div> -->
   <header class="fixed top-0 z-10 w-full ">
-    <nav class="flex justify-center items-center mx-auto bg-white relative  ">
+    <nav class="flex justify-center items-center mx-auto bg-white   ">
       <div class="absolute left-0 mx-4 flex ">
         <a href="/">
           <img width="45" height="45" src="assets/computer-svgrepo-com.svg" alt="ok">
@@ -44,19 +43,17 @@
           <div class="flex">
             <div class="relative w-full">
               <input type="search" id="search"
-                class="block flex-auto bg-gradient-to-r from-[#efeafe] to-[#cac6ef] p-2.5 w-full pr-[60px] z-20 text-sm text-gray-900 rounded-full border-l-gray-100 border-l-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                class="block flex-auto bg-gradient-to-r from-[#efeafe] to-[#cac6ef] p-2.5 w-full pr-[60px] z-20 text-sm text-gray-900 rounded-full border-l-gray-100 border-l-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                 required />
 
-              <div class="">
-                <button type="submit"
-                  class="absolute top-0 right-0 px-5 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-full  hover:bg-blue-800  focus:outline-none  dark:bg-blue-600 dark:hover:bg-blue-69 dark:focus:ring-blue-800 transform transition duration-500 hover:scale-105 ">
-                  <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                  </svg>
-                </button>
-              </div>
+              <button type="submit"
+                class="absolute top-0 right-0 px-5 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-full  hover:bg-blue-800  focus:outline-none   transform transition duration-500 hover:scale-105 ">
+                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </button>
 
             </div>
           </div>
@@ -67,7 +64,9 @@
       <div class="absolute right-10">
         <button onclick="toggleSlideover()">
 
-          <img width="32" height="32" src="assets/cart.svg" alt="ok">
+          <div class="transform transition duration-500 hover:scale-105">
+            <img width="32" height="32" src="assets/cart.svg" alt="ok">
+          </div>
         </button>
       </div>
       <div class="flex">
@@ -254,7 +253,7 @@
 
           <div class="mx-12 my-5 justify-center items-center flex">
 
-            <img class="w-fit object-cover" src="https://m.media-amazon.com/images/I/418Jiaw3qXL._SL500_.jpg" alt="ok">
+            <img src="https://m.media-amazon.com/images/I/418Jiaw3qXL._SL500_.jpg" alt="ok">
 
           </div>
 
@@ -292,7 +291,7 @@
 
 
             <div class="mx-3 my-3 flex justify-center items-center">
-              <img class="" src="https://m.media-amazon.com/images/I/41jCl0vLfkL._SL500_.jpg" alt="ok">
+              <img src="https://m.media-amazon.com/images/I/41jCl0vLfkL._SL500_.jpg" alt="ok">
             </div>
 
 
@@ -369,7 +368,7 @@
 
 
             <div class="mx-3 my-3 flex justify-center items-center">
-              <img class="" src="https://m.media-amazon.com/images/I/41avm0KwiYL._SL500_.jpg" alt="ok">
+              <img src="https://m.media-amazon.com/images/I/41avm0KwiYL._SL500_.jpg" alt="ok">
             </div>
 
 
@@ -403,7 +402,7 @@
 
 
               <div class="mx-3 my-3 flex justify-center items-center">
-                <img class="" src="https://m.media-amazon.com/images/I/41Pt4YtQySL._SL500_.jpg" alt="ok">
+                <img src="https://m.media-amazon.com/images/I/41Pt4YtQySL._SL500_.jpg" alt="ok">
               </div>
             </div>
 
@@ -442,7 +441,7 @@
 
 
             <div class="mx-3 my-3 flex justify-center items-center">
-              <img class="" src="https://m.media-amazon.com/images/I/41Pt4YtQySL._SL500_.jpg" alt="ok">
+              <img src="https://m.media-amazon.com/images/I/41Pt4YtQySL._SL500_.jpg" alt="ok">
             </div>
           </div>
 
@@ -456,7 +455,7 @@
       </div>
       <div class="w-auto h-auto">
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="prod2">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="prodList">
 
         </div>
 
@@ -468,12 +467,12 @@
           <ul class="flex justify-center items-center">
 
             <button id="prevBtn"
-              class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
+              class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 ">Previous</button>
 
             <div class="flex" id="btn"></div>
 
             <button id="nextBtn"
-              class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
+              class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 ">Next</button>
           </ul>
         </div>
 
@@ -504,8 +503,8 @@
 <script>
   const form = document.getElementById('form')
 
-  form.addEventListener('click', function (event) {
-    event.preventDefault()
+  form.addEventListener('click', (e) => {
+    e.preventDefault()
     let search = document.getElementById('search').value
     console.log(search)
     form.reset()
